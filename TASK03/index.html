@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- reset css -->
+    <link rel="stylesheet" href="./assets/styles/reset.css" />
+
+    <!-- boostrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+
+    <!-- icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- common -->
+    <link rel="stylesheet" href="./assets/styles/common.css" />
+
+    <!-- main css -->
+    <link rel="stylesheet" href="./assets//styles/main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-top">
+        <p>
+          Sign up and get 20% off to your first order.
+          <a href="./signup">Sign Up Now</a>
+        </p>
+        <span><button class="bt-header-top">x</button></span>
+      </div>
+      <div class="header-main">
+        <div class="container flex-space-beetween">
+          <div class="logo">
+            <a href="./index.html">
+              <img src="./assets/imgs/logo.png" alt="logo"
+            /></a>
+          </div>
+          <nav class="main-menu">
+            <ul class="flex-space-beetween">
+              <li><a href="./product-detail.html">Shop</a></li>
+              <li><a href="/sale">On Sale</a></li>
+              <li><a href="/arrivals">Arrivals</a></li>
+              <li><a href="/brand">Brand</a></li>
+            </ul>
+          </nav>
+          <div>
+            <input
+              type="text"
+              class="search"
+              placeholder="Search for products..."
+            />
+          </div>
+          <div class="user-control">
+            <a href="./cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="#"><i class="fa-solid fa-user"></i></a>
+          </div>
+        </div>
+
+        <!-- BEM = Block Element Modifier -->
+      </div>
+    </header>
+
+    <section id="banner">
+      <div class="banner-content">
+        <h1>
+          FIND CLOTHES <br />THAT MATCHES <br />
+          YOUR STYLE
+        </h1>
+        <p class="p-content">
+          Browse through our diverse range of meticulously crafted garments,
+          designed to bring out your individuality and cater to your sense of
+          style.
+        </p>
+        <a href="#" class="btn-buy">Shop Now</a>
+        <div class="content-bottom">
+          <div>
+            <p>200+</p>
+            <p class="content-bottom-p">International Brands</p>
+          </div>
+          <div class="content-bottom2">
+            <p>2,000+</p>
+            <p class="content-bottom-p">High-Quality Products</p>
+          </div>
+          <div class="content-bottom3">
+            <p>30,000+</p>
+            <p class="content-bottom-p">Happy Customers</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-img">
+        <img src="./assets/imgs/banner.png" alt="banner" />
+      </div>
+    </section>
+
+    <section id="brand">
+      <div><h2>VERSACE</h2></div>
+      <div><h2>ZARA</h2></div>
+      <div><h2>GUCCI</h2></div>
+      <div><h2>PRADA</h2></div>
+      <div><h2>Calvin Klein</h2></div>
+    </section>
+
+    <section id="arrivals">
+      <div class="arrivals-container">
+        <h2>NEW ARRIVALS</h2>
+        <div class="products">
+          <div class="product">
+            <div class="product-img">
+              <a href="./product-detail.html">
+                <img src="./assets/imgs/product1.png" alt="Sản phẩm" />
+              </a>
+              <div class="percent-decrease">-20%</div>
+            </div>
+            <a href="./product-detail.html">
+              <h3 title="T-SHIRT WITH TAPE DETAILS">
+                T-SHIRT WITH TAPE DETAILS
+              </h3>
+            </a>
+            <div class="rating-container">
+              <div class="icon-feedback">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span>4.5/5</span>
+            </div>
+            <div class="price">
+              <h4>$120</h4>
+              <del><h4>$120</h4></del>
+            </div>
+          </div>
+          <div class="product">
+            <div class="product-img">
+              <a href="./product-detail.html">
+                <img src="./assets/imgs/product2.png" alt="Sản phẩm" />
+              </a>
+              <div class="percent-decrease">-20%</div>
+            </div>
+            <a href="./product-detail.html">
+              <h3 title="T-SHIRT WITH TAPE DETAILS">
+                T-SHIRT WITH TAPE DETAILS
+              </h3>
+            </a>
+            <div class="rating-container">
+              <div class="icon-feedback">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span>4.5/5</span>
+            </div>
+            <div class="price">
+              <h4>$120</h4>
+              <del><h4>$120</h4></del>
+            </div>
+          </div>
+          <div class="product">
+            <div class="product-img">
+              <a href="./product-detail.html">
+                <img src="./assets/imgs/product3.png" alt="Sản phẩm" />
+              </a>
+              <div class="percent-decrease">-20%</div>
+            </div>
+            <a href="./product-detail.html">
+              <h3 title="T-SHIRT WITH TAPE DETAILS">
+                T-SHIRT WITH TAPE DETAILS
+              </h3>
+            </a>
+            <div class="rating-container">
+              <div class="icon-feedback">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span>4.5/5</span>
+            </div>
+            <div class="price">
+              <h4>$120</h4>
+              <del><h4>$120</h4></del>
+            </div>
+          </div>
+          <div class="product">
+            <div class="product-img">
+              <a href="./product-detail.html">
+                <img src="./assets/imgs/product4.png" alt="Sản phẩm" />
+              </a>
+              <div class="percent-decrease">-20%</div>
+            </div>
+            <a href="./product-detail.html">
+              <h3 title="T-SHIRT WITH TAPE DETAILS">
+                T-SHIRT WITH TAPE DETAILS
+              </h3>
+            </a>
+            <div class="rating-container">
+              <div class="icon-feedback">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span>4.5/5</span>
+            </div>
+            <div class="price">
+              <h4>$120</h4>
+              <del><h4>$120</h4></del>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="view-all-container">
+        <a class="view-all" href="#">View All</a>
+      </div>
+    </section>
+    <hr class="hr-arrivals" />
+    <section id="selling">
+      <div class="selling-container">
+        <h2>TOP SELLING</h2>
+        <div class="products">
+          <div class="product">
+            <div class="product-img">
+              <a href="./product-detail.html">
+                <img src="./assets/imgs/product5.png" alt="Sản phẩm" />
+              </a>
+              <div class="percent-decrease">-20%</div>
+            </div>
+            <a href="./product-detail.html">
+              <h3>T-SHIRT WITH TAPE DETAILS</h3>
+            </a>
+            <div class="rating-container">
+              <div class="icon-feedback">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span>4.5/5</span>
+            </div>
+            <div class="price">
+              <h4>$120</h4>
+              <del><h4>$120</h4></del>
+            </div>
+          </div>
+          <div class="product">
+            <div class="product-img">
+              <a href="./product-detail.html">
+                <img src="./assets/imgs/product6.png" alt="Sản phẩm" />
+              </a>
+              <div class="percent-decrease">-20%</div>
+            </div>
+            <a href="./product-detail.html">
+              <h3>T-SHIRT WITH TAPE DETAILS</h3>
+            </a>
+            <div class="rating-container">
+              <div class="icon-feedback">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span>4.5/5</span>
+            </div>
+            <div class="price">
+              <h4>$120</h4>
+              <del><h4>$120</h4></del>
+            </div>
+          </div>
+          <div class="product">
+            <div class="product-img">
+              <a href="./product-detail.html">
+                <img src="./assets/imgs/product7.png" alt="Sản phẩm" />
+              </a>
+              <div class="percent-decrease">-20%</div>
+            </div>
+            <a href="./product-detail.html">
+              <h3>T-SHIRT WITH TAPE DETAILS</h3>
+            </a>
+            <div class="rating-container">
+              <div class="icon-feedback">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span>4.5/5</span>
+            </div>
+            <div class="price">
+              <h4>$120</h4>
+              <del><h4>$120</h4></del>
+            </div>
+          </div>
+          <div class="product">
+            <div class="product-img">
+              <a href="./product-detail.html">
+                <img src="./assets/imgs/product8.png" alt="Sản phẩm" />
+              </a>
+              <div class="percent-decrease">-20%</div>
+            </div>
+            <a href="./product-detail.html">
+              <h3>T-SHIRT WITH TAPE DETAILS</h3>
+            </a>
+            <div class="rating-container">
+              <div class="icon-feedback">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <span>4.5/5</span>
+            </div>
+            <div class="price">
+              <h4>$120</h4>
+              <del><h4>$120</h4></del>
+            </div>
+          </div>
+        </div>
+        <div class="view-all-container">
+          <a class="view-all" href="#">View All</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="category-section">
+      <div class="category-container">
+        <div class="category-title"><h2>BROWSE BY dress STYLE</h2></div>
+        <div class="category-img">
+          <div class="category-img1">
+            <a href="./category.html"
+              ><img src="./assets/imgs/category-casual.png" alt=""
+            /></a>
+          </div>
+          <div class="category-img2">
+            <img src="./assets/imgs/category-formal.png" alt="" />
+          </div>
+          <div class="category-img3">
+            <img src="./assets/imgs/category-party.png" alt="" />
+          </div>
+          <div class="category-img4">
+            <img src="./assets/imgs/category-gym.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="feedback">
+      <div class="feedback-container">
+        <div class="feedback-title">
+          <h2>OUR HAPPY CUSTOMERS</h2>
+          <div class="icon-title">
+            <button><i class="fa-solid fa-arrow-left"></i></button>
+            <button><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="feedback-list">
+          <div class="feedback-box">
+            <div class="icon-feedback">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h3>Sarah M</h3>
+            <p>
+              "I'm blown away by the quality and style of the clothes I received
+              from Shop.co. From casual wear to elegant dresses, every piece
+              I've bought has exceeded my expectations.”
+            </p>
+          </div>
+          <div class="feedback-box">
+            <div class="icon-feedback">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h3>Alex K.</h3>
+            <p>
+              "Finding clothes that align with my personal style used to be a
+              challenge until I discovered Shop.co. The range of options they
+              offer is truly remarkable, catering to a variety of tastes and
+              occasions.”
+            </p>
+          </div>
+          <div class="feedback-box">
+            <div class="icon-feedback">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h3>James L.</h3>
+            <p>
+              "As someone who's always on the lookout for unique fashion pieces,
+              I'm thrilled to have stumbled upon Shop.co. The selection of
+              clothes is not only diverse but also on-point with the latest
+              trends.”
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="subcribe">
+      <div class="subcribe-container">
+        <h2>
+          STAY UPTO DATE ABOUT <br />
+          OUR LATEST OFFERS
+        </h2>
+        <form action="">
+          <div class="email-input">
+            <i class="fa-regular fa-envelope"></i>
+            <input type="email" placeholder="Enter your email address" />
+          </div>
+          <div class="bt-form">
+            <button>Subcribe to Newsletter</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-top">
+        <div class="shopco-footer">
+          <h2>SHOP.CO</h2>
+          <p class="shopco-description">
+            We have clothes that suits your style and which you’re proud to
+            wear. From women to men.
+          </p>
+          <div class="icon-shopco">
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-github"></i>
+          </div>
+        </div>
+        <div class="company-footer">
+          <p>Company</p>
+          <ul class="company-list">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Career</a></li>
+          </ul>
+        </div>
+        <div class="help-footer">
+          <p>Help</p>
+          <ul class="help-list">
+            <li><a href="#">Customer Support</a></li>
+            <li><a href="#">Delivery Details</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="faq-footer">
+          <p>FAQ</p>
+          <ul class="faq-list">
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Manage Deliveries</a></li>
+            <li><a href="#">Orders</a></li>
+            <li><a href="#">Payments</a></li>
+          </ul>
+        </div>
+        <div class="resources-footer">
+          <p>RESOURCES</p>
+          <ul class="resources-list">
+            <li><a href="#">Free eBooks</a></li>
+            <li><a href="#"> Development Tutorial</a></li>
+            <li><a href="#">How to - Blog</a></li>
+            <li><a href="#">Youtube Playlist</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr />
+      <div class="footer-bottom">
+        <p>Shop.co © 2000-2023, All Rights Reserved</p>
+        <div class="icon-footerbot">
+          <i class="fa-brands fa-cc-visa"></i>
+          <i class="fa-brands fa-cc-mastercard"></i>
+          <i class="fa-brands fa-cc-paypal"></i>
+          <i class="fa-brands fa-google-pay"></i>
+        </div>
+      </div>
+    </footer>
+    <!-- <button class="btn btn-primary">button</button> -->
+    <!-- bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
