@@ -354,7 +354,6 @@ header {
       }
       .content-bottom {
         display: flex;
-        flex-wrap: wrap;
         gap: 20px;
       }
       .btn-quantity {
