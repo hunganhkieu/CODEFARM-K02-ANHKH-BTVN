@@ -20,5 +20,4 @@ function isTriangle() {
   }
 }
 
-let message = isTriangle();
-console.log(message);
+console.log(isTriangle());
