@@ -16,4 +16,3 @@ const result = students.map((item) => {
 });
 
 console.log(result);
-console.log(students);
