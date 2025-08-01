@@ -54,22 +54,23 @@ const categories = [
   },
 ];
 
-function cleanCategories(arr) {
-  const newArr = [];
-  return categories.map((item) => {
-    if (Array.isArray(arr[item])) {
-      let itemFlat = cleanCategories(arr[item]);
-      itemFlat.map((item) => {
-        newArr.push(itemFlat[item]);
-      });
-    } else {
-      newArr.push(arr[item]);
+function flattenCategories(arr, parentId = 0) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    const item = arr[i];
+    const newItem = {
+      id: item.id,
+      name: item.name,
+      parentId: parentId,
+    };
+    result.push(newItem);
+    if (item.children && Array.isArray(item.children)) {
+      const children = flattenCategories(item.children, item.id);
+      result = result.concat(children);
     }
-    return newArr;
-  });
+  }
+  return result;
 }
-console.log(cleanCategories([1, 2, [[3]], [[[[5]]]]]));
-function flattenCategories(arr) {}
 const result = flattenCategories(categories);
 console.log(result);
 
