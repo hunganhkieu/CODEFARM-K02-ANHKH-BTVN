@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "Satoshi";
+  src: url("../fonts/Satoshi-Variable.ttf");
+}
+
+@font-face {
+  font-family: "Intergral";
+  src: url("../fonts/Fontspring-DEMO-integralcf-regular.otf");
+}
+
+.btn {
+}
+
+.btn.btn-big {
+}
+
+.btn.btn-medium {
+}
+
+.btn.btn-small {
+}
+
+.btn.btn-primary {
+}
+
+.btn.btn-secondary {
+}
+
+h1.section-title {
+}
+
+h2.section-title {
+}
