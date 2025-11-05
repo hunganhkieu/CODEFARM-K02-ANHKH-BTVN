@@ -83,6 +83,13 @@
       "fullname": "abc123",
       "role": "student",
       "id": 4
+    },
+    {
+      "email": "jane@example.com",
+      "password": "$2a$10$ZLAS85bcDs1n7d.GYPw30uibRsvyWqPct1qTfB2J0JNgG5I6ZD3dS",
+      "fullname": "abc123",
+      "role": "student",
+      "id": 5
     }
   ]
 }

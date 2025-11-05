@@ -1,0 +1,115 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Product A",
+      "price": 220,
+      "description": "This is product A",
+      "thumbnail": "https://picsum.photos/200/300.webp",
+      "stock": 100,
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "title": "Product B",
+      "price": 180,
+      "description": "This is product B",
+      "thumbnail": "https://picsum.photos/200/300.webp",
+      "stock": 100,
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "title": "Product C",
+      "price": 120,
+      "description": "This is product C",
+      "thumbnail": "https://picsum.photos/200/300.webp",
+      "stock": 100,
+      "categoryId": 2
+    },
+    {
+      "id": 4,
+      "title": "Product D",
+      "price": 150,
+      "description": "This is product D",
+      "thumbnail": "https://picsum.photos/200/300.webp",
+      "stock": 100,
+      "categoryId": 2
+    },
+    {
+      "id": 5,
+      "title": "Product E",
+      "price": 200,
+      "description": "This is product E",
+      "thumbnail": "https://picsum.photos/200/300.webp",
+      "stock": 100,
+      "categoryId": 3
+    },
+    {
+      "id": 6,
+      "title": "Product F",
+      "price": 250,
+      "description": "This is product F",
+      "thumbnail": "https://picsum.photos/200/300.webp",
+      "stock": 100,
+      "categoryId": 3
+    },
+    {
+      "title": "abc12345",
+      "price": 12345,
+      "categoryId": 3,
+      "description": "abc123",
+      "thumbnail": "abc123",
+      "stock": 12345,
+      "id": 7
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "Technology",
+      "slug": "technology"
+    },
+    {
+      "id": 2,
+      "title": "Clothing",
+      "slug": "clothing"
+    },
+    {
+      "id": 3,
+      "title": "Others",
+      "slug": "others"
+    },
+    {
+      "title": "abc",
+      "slug": "abc",
+      "id": 4
+    }
+  ],
+  "users": [
+    {
+      "email": "john1@example.com",
+      "password": "$2a$10$/7tVcKOVZBYiDaaojmhGzOY2rjeknh6N8JrtN4A/5ihHrvJ8u4sTm",
+      "role": "member",
+      "id": 2
+    },
+    {
+      "email": "john@example.com",
+      "password": "$2a$10$ezRXsybvP4taLPWsbYu9MuqAEQ1h2VzLYa78Q2vFZnkTOj9oTdUK2",
+      "role": "admin",
+      "id": 3
+    },
+    {
+      "email": "user123@gmail.com",
+      "password": "$2a$10$aszQcYxEcBFPKjenqc9XouDL/pSeOB9/TrMJD20bbZspNDN.GM5eS",
+      "role": "member",
+      "id": 4
+    },
+    {
+      "email": "asdfa3@gmail.com",
+      "password": "$2a$10$a8q1xisy99eCQUrdBb74V.Dry7tLlW5Dxy8.4Urg.W84yDUCrgJvK",
+      "role": "member",
+      "id": 5
+    }
+  ]
+}

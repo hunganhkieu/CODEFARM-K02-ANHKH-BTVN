@@ -47,6 +47,7 @@ const CoursesPage = () => {
       <input
         type="text"
         placeholder="Tìm kiếm"
+        value={inputSearch}
         onChange={(e) => setInputSearch(e.target.value)}
       />
 

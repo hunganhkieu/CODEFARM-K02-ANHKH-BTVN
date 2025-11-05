@@ -1,11 +1,12 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
 const ForbiddenPage = () => {
   return (
     <div>
-      <h1>Forbidden: You dont have permission to access this page.</h1>
+      <h1>Forbidden: You do not have access to this page.</h1>
       <Link to={"/auth/login"}>
-        <button>Về trang đăng nhập</button>
+        <button>Quay lại trang đăng nhập</button>
       </Link>
     </div>
   );
