@@ -44,6 +44,8 @@ const CoursesPage = () => {
   };
   return (
     <div>
+      <h1>Trang khóa học</h1>
+
       <input
         type="text"
         placeholder="Tìm kiếm"

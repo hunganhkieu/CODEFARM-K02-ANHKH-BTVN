@@ -38,14 +38,15 @@ const LessonPage = () => {
   };
   return (
     <div>
+      <h1>Trang bài học</h1>
       <Link to={`/admin/courseId/${courseId}/lesson/add`}>
         <button>Thêm mới</button>
       </Link>
+      <h3>Khóa học: {courseName}</h3>
       <table>
         <thead>
           <tr>
             <th>Id</th>
-            <th>Khóa học</th>
             <th>Tên bài học</th>
             <th>Nội dung</th>
           </tr>
@@ -56,7 +57,6 @@ const LessonPage = () => {
             lesson.map((item) => (
               <tr key={item.id}>
                 <td>{item.id}</td>
-                <td>{courseName}</td>
                 <td>{item.title}</td>
                 <td>{item.content}</td>
                 <td>
