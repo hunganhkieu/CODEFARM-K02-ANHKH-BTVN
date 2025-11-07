@@ -17,6 +17,12 @@
       "price": 123,
       "description": "abc",
       "id": 3
+    },
+    {
+      "title": "new lesson",
+      "price": 12345,
+      "description": "abc",
+      "id": 4
     }
   ],
   "lessons": [
@@ -90,6 +96,13 @@
       "fullname": "abc123",
       "role": "student",
       "id": 5
+    },
+    {
+      "email": "john1@example.com",
+      "password": "$2a$10$zQ9rTXnV.w3az1iirDk81.fYLlZhbvTEixCG9PLDhJCd/iR5fPRQe",
+      "fullname": "aaaaaa",
+      "role": "student",
+      "id": 6
     }
   ]
 }

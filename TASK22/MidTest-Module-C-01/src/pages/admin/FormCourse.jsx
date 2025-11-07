@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+
 const courseSchema = z.object({
   title: z
     .string()
@@ -40,7 +41,6 @@ const FormCourse = () => {
     } catch (error) {
       console.log(error);
     }
-    // console.log(data);
   };
 
   useEffect(() => {
@@ -51,32 +51,108 @@ const FormCourse = () => {
       })();
     }
   }, [id, reset]);
+
   return (
-    <div>
-      <button onClick={() => nav(-1)}>Quay lại</button>
-      <form action="" onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label htmlFor="">Tên khóa học</label>
-          <input type="text" {...register("title", { required: true })} />
-          {errors.title && <span>{errors.title.message}</span>}
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+      {/* Header */}
+      <div className="bg-white shadow-md border-b">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex justify-between items-center">
+            <h1 className="text-3xl font-bold text-gray-800">
+              {!id ? "Thêm khóa học mới" : "Cập nhật khóa học"}
+            </h1>
+            <button
+              onClick={() => nav(-1)}
+              className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition duration-200 font-medium"
+            >
+              ← Quay lại
+            </button>
+          </div>
         </div>
+      </div>
 
-        <div>
-          <label htmlFor="">Mô tả khóa học</label>
-          <textarea name="" id="" {...register("description")}></textarea>
-          {errors.description && <span>{errors.description.message}</span>}
-        </div>
-        <div>
-          <label htmlFor="">Giá</label>
-          <input
-            type="number"
-            {...register("price", { required: true, valueAsNumber: true })}
-          />
-          {errors.price && <span>{errors.price.message}</span>}
-        </div>
+      {/* Form Content */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            {/* Title Field */}
+            <div>
+              <label
+                htmlFor="title"
+                className="block text-sm font-semibold text-gray-700 mb-2"
+              >
+                Tên khóa học <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="title"
+                {...register("title", { required: true })}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 outline-none"
+                placeholder="Nhập tên khóa học..."
+              />
+              {errors.title && (
+                <span className="text-red-500 text-sm mt-1 block">
+                  {errors.title.message}
+                </span>
+              )}
+            </div>
 
-        <button>{!id ? "Thêm mới" : "Cập nhật"}</button>
-      </form>
+            {/* Description Field */}
+            <div>
+              <label
+                htmlFor="description"
+                className="block text-sm font-semibold text-gray-700 mb-2"
+              >
+                Mô tả khóa học
+              </label>
+              <textarea
+                id="description"
+                rows="5"
+                {...register("description")}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 outline-none resize-none"
+                placeholder="Nhập mô tả về khóa học..."
+              ></textarea>
+              {errors.description && (
+                <span className="text-red-500 text-sm mt-1 block">
+                  {errors.description.message}
+                </span>
+              )}
+            </div>
+
+            {/* Price Field */}
+            <div>
+              <label
+                htmlFor="price"
+                className="block text-sm font-semibold text-gray-700 mb-2"
+              >
+                Giá khóa học (VNĐ) <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="number"
+                id="price"
+                {...register("price", { required: true, valueAsNumber: true })}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 outline-none"
+                placeholder="Nhập giá khóa học..."
+              />
+              {errors.price && (
+                <span className="text-red-500 text-sm mt-1 block">
+                  {errors.price.message}
+                </span>
+              )}
+            </div>
+
+            {/* Submit Button */}
+            <div className="pt-4 border-t border-gray-200">
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transform hover:scale-[1.02] transition duration-200 shadow-lg"
+              >
+                {!id ? "✓ Thêm mới" : "✓ Cập nhật"}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
