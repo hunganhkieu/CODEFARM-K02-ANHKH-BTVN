@@ -4,7 +4,7 @@ import {
   getProjectId,
   updateProject,
 } from "../../api/apiProject";
-import { useNavigate, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import { useEffect } from "react";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -54,12 +54,11 @@ const FormProject = () => {
     <div className="min-h-screen bg-gray-50 flex items-start justify-center py-10 px-4">
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-md p-6 sm:p-8">
         <div className="flex items-center justify-between mb-4">
-          <button
-            onClick={() => nav(-1)}
-            className="text-sm px-3 py-2 rounded-md border hover:bg-gray-100"
-          >
-            Quay lại
-          </button>
+          <Link to={"/admin/projects"}>
+            <button className="text-sm px-3 py-2 rounded-md border hover:bg-gray-100">
+              Quay lại
+            </button>
+          </Link>
           <h2 className="text-lg font-semibold">
             {!id ? "Thêm dự án" : "Chỉnh sửa dự án"}
           </h2>

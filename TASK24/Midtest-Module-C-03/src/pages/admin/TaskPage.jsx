@@ -47,12 +47,12 @@ const TaskPage = () => {
           </button>
         </Link>
 
-        <button
-          onClick={() => nav(-1)}
-          className="px-3 py-2 border rounded-lg hover:bg-gray-100"
-        >
-          Quay lại
-        </button>
+        <Link to={"/admin/projects"}>
+          {" "}
+          <button className="px-3 py-2 border rounded-lg hover:bg-gray-100">
+            Quay lại
+          </button>
+        </Link>
       </div>
 
       <h3 className="text-xl font-semibold mb-4">
