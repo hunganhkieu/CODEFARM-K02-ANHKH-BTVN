@@ -1,0 +1,84 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Phát triển website thương mại điện tử",
+      "description": "Xây dựng website bán hàng với React và Node.js.",
+      "status": "in-progress"
+    },
+    {
+      "id": 2,
+      "title": "Ứng dụng quản lý kho",
+      "description": "Ứng dụng quản lý kho hàng với giao diện thân thiện.",
+      "status": "not-started"
+    },
+    {
+      "title": "aaa",
+      "description": "abc123",
+      "status": "in-progress",
+      "id": 3
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "projectId": 1,
+      "title": "Thiết kế giao diện người dùng",
+      "description": "Tạo wireframe và mockup cho trang chủ và trang sản phẩm.",
+      "status": "completed"
+    },
+    {
+      "id": 2,
+      "projectId": 1,
+      "title": "Phát triển API backend",
+      "description": "Xây dựng các endpoint RESTful cho quản lý sản phẩm và đơn hàng.",
+      "status": "in-progress"
+    },
+    {
+      "id": 3,
+      "projectId": 2,
+      "title": "Tối ưu hóa cơ sở dữ liệu",
+      "description": "Cải thiện hiệu suất truy vấn và thiết kế schema.",
+      "status": "not-started"
+    },
+    {
+      "title": "abc",
+      "description": "abc",
+      "id": 4
+    }
+  ],
+  "users": [
+    {
+      "email": "john@example.com",
+      "password": "$2a$10$.NHziIJdSP.Hdoo8rNgJNe/0vbqfeR.myTyvm15dFULGYift8Y63G",
+      "name": "abc",
+      "role": "member",
+      "id": 1
+    },
+    {
+      "email": "asdfa@gmail.com",
+      "password": "$2a$10$H6AFbMZsq8VVruJ.5.z1r.oamq/tYKmAkPI2r8t8uALwsVckefvt2",
+      "name": "abc",
+      "role": "member",
+      "id": 2
+    },
+    {
+      "email": "hunganh123@gmail.com",
+      "password": "$2a$10$dr2cAZZWK3yWP.MMdJnnuuXcK51fqCGYIr2Du0GiUQasgYQ2JVVWm",
+      "role": "admin",
+      "id": 3
+    },
+    {
+      "email": "asdfa3@gmail.com",
+      "password": "$2a$10$LtzBP10rSyGKZlACZW6D/ujef6D2CBWk1D.JyySlw.xp9zzTaFlOi",
+      "role": "member",
+      "id": 4
+    },
+    {
+      "email": "jane@example.com",
+      "password": "$2a$10$wEgQuNPKS/mpMdQ8xisF6e9x6Gl8UM38vCRtlF6hEzMHIKOZbTKHm",
+      "role": "member",
+      "id": 5
+    }
+  ]
+}
