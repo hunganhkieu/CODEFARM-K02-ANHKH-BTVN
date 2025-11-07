@@ -81,8 +81,8 @@
       "slug": "others"
     },
     {
-      "title": "abc",
-      "slug": "abc",
+      "title": "abc123",
+      "slug": "abc123",
       "id": 4
     }
   ],
@@ -110,6 +110,18 @@
       "password": "$2a$10$a8q1xisy99eCQUrdBb74V.Dry7tLlW5Dxy8.4Urg.W84yDUCrgJvK",
       "role": "member",
       "id": 5
+    },
+    {
+      "email": "asdfa@gmail.com",
+      "password": "$2a$10$9DFJRh5mlZuNA8hyzzVAaetOQWQq2/Xqmnt2wtYUcL8cbC5DaqO4G",
+      "role": "member",
+      "id": 6
+    },
+    {
+      "email": "jane@example.com",
+      "password": "$2a$10$AyB39TwbdnGAkad00d0nluMNO0Ky0Y13C.QQEknYic6M0GiB./aGG",
+      "role": "member",
+      "id": 7
     }
   ]
 }

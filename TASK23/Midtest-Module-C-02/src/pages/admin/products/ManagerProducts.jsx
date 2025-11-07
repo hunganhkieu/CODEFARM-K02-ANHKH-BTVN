@@ -7,6 +7,7 @@ const ManagerProducts = () => {
   const [categoryName, setCategoryName] = useState([]);
   const [inputSearch, setInputSearch] = useState("");
   const [filterCategory, setFilterCategory] = useState("");
+
   const fetchProducts = async (inputSearch, filterCategory) => {
     const data = await fetch(
       `http://localhost:3000/products?${inputSearch ? `q=${inputSearch}` : ""}${
@@ -15,11 +16,11 @@ const ManagerProducts = () => {
     ).then((res) => res.json());
     setProducts(data);
   };
+
   const fetchCategoryName = async () => {
     const category = await fetch("http://localhost:3000/categories").then(
       (res) => res.json()
     );
-    // console.log(category);
     setCategoryName(category);
   };
 
@@ -43,74 +44,101 @@ const ManagerProducts = () => {
     setInputSearch("");
     setFilterCategory("");
   };
+
   return (
-    <div>
-      <h1>Trang quản lý sản phẩm</h1>
-      <input
-        type="text"
-        placeholder="Tìm kiếm"
-        value={inputSearch}
-        onChange={(e) => setInputSearch(e.target.value)}
-      />
+    <div className="p-6">
+      <h1 className="text-2xl font-semibold mb-6">Trang quản lý sản phẩm</h1>
 
-      <select
-        name=""
-        id=""
-        value={filterCategory}
-        onChange={(e) => setFilterCategory(e.target.value)}
-      >
-        <option value="">Chọn danh mục muốn lọc</option>
-        {categoryName.map((cate) => (
-          <option value={cate.id} key={cate.id}>
-            {cate.title}
-          </option>
-        ))}
-      </select>
+      {/* Search + Filter */}
+      <div className="flex gap-4 mb-6 flex-wrap">
+        <input
+          type="text"
+          placeholder="Tìm kiếm"
+          value={inputSearch}
+          onChange={(e) => setInputSearch(e.target.value)}
+          className="border p-2 rounded-lg w-64"
+        />
 
-      <button onClick={handleReset}>Reset</button>
+        <select
+          value={filterCategory}
+          onChange={(e) => setFilterCategory(e.target.value)}
+          className="border p-2 rounded-lg"
+        >
+          <option value="">Chọn danh mục</option>
+          {categoryName.map((cate) => (
+            <option value={cate.id} key={cate.id}>
+              {cate.title}
+            </option>
+          ))}
+        </select>
+
+        <button
+          onClick={handleReset}
+          className="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300"
+        >
+          Reset
+        </button>
+      </div>
       <Link to={"/admin/product/add"}>
-        <button>Thêm mới</button>
+        <button className="bg-blue-600 text-white px-4 py-2 mb-3 rounded-lg shadow hover:bg-blue-700">
+          Thêm mới
+        </button>
       </Link>
-      <table>
-        <thead>
-          <tr>
-            <th>Tên sản phẩm</th>
-            <th>Giá</th>
-            <th>Danh mục</th>
-            <th>Tồn kho</th>
-            <th>Hành động</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {products.length > 0 ? (
-            products.map((item, index) => {
-              const categories = categoryName.find(
-                (cate) => cate.id === item.categoryId
-              );
-              return (
-                <tr key={index}>
-                  <td>{item.title}</td>
-                  <td>{item.price}</td>
-                  <td>{categories ? categories.title : "Chưa có danh mục"}</td>
-                  <td>{item.stock}</td>
-                  <td>
-                    <Link to={`/admin/product/update/${item.id}`}>
-                      {" "}
-                      <button>Cập nhật</button>
-                    </Link>
-                    <button onClick={() => handleDelete(item.id)}>Xóa</button>
-                  </td>
-                </tr>
-              );
-            })
-          ) : (
+      {/* Table */}
+      <div className="overflow-x-auto">
+        <table className="w-full border text-left">
+          <thead className="bg-gray-100">
             <tr>
-              <td>Không có sản phẩm</td>
+              <th className="p-3 border">Tên sản phẩm</th>
+              <th className="p-3 border">Giá</th>
+              <th className="p-3 border">Danh mục</th>
+              <th className="p-3 border">Tồn kho</th>
+              <th className="p-3 border">Hành động</th>
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            {products.length > 0 ? (
+              products.map((item, index) => {
+                const categories = categoryName.find(
+                  (cate) => cate.id === item.categoryId
+                );
+                return (
+                  <tr key={index} className="hover:bg-gray-50">
+                    <td className="p-3 border">{item.title}</td>
+                    <td className="p-3 border">{item.price}</td>
+                    <td className="p-3 border">
+                      {categories ? categories.title : "Chưa có danh mục"}
+                    </td>
+                    <td className="p-3 border">{item.stock}</td>
+
+                    <td className="p-3 border flex gap-2">
+                      <Link to={`/admin/product/update/${item.id}`}>
+                        <button className="bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-600">
+                          Sửa
+                        </button>
+                      </Link>
+
+                      <button
+                        onClick={() => handleDelete(item.id)}
+                        className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600"
+                      >
+                        Xóa
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              <tr>
+                <td className="p-3 border text-center" colSpan={5}>
+                  Không có sản phẩm
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

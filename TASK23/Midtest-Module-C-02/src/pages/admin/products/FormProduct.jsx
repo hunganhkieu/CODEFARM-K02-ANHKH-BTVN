@@ -9,6 +9,7 @@ import {
   updateProduct,
 } from "../../../api/apiProduct";
 import { productSchema } from "../../../schemas/AdminSchema";
+
 const FormProduct = () => {
   const {
     register,
@@ -16,32 +17,34 @@ const FormProduct = () => {
     reset,
     formState: { errors },
   } = useForm({ resolver: zodResolver(productSchema) });
+
   const { id } = useParams();
   const nav = useNavigate();
   const [categoryName, setCategoryName] = useState([]);
+
   const fetchCategoryName = async () => {
     const categories = await getCategories();
     setCategoryName(categories);
-    // setCategoryId(id);
   };
 
   const fetchProductId = async (id, reset) => {
     try {
       const data = await getProductId(id);
-      // console.log(data);
       reset(data);
     } catch (error) {
       console.log(error);
     }
   };
+
   useEffect(() => {
     fetchCategoryName();
     if (id) fetchProductId(id, reset);
   }, [id, reset]);
+
   const onSubmit = async (data) => {
     const newData = {
       ...data,
-      categoryId: Number(data.categoryId),
+      categoryId: data.categoryId,
     };
 
     try {
@@ -58,31 +61,55 @@ const FormProduct = () => {
     } catch (error) {
       console.log(error);
     }
-    // console.log(newData);
+    console.log(newData);
   };
+
   return (
-    <div>
-      <button onClick={() => nav(-1)}>Quay lại</button>
-      <form action="" onSubmit={handleSubmit(onSubmit)}>
+    <div className="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-md mt-6">
+      <button
+        onClick={() => nav(-1)}
+        className="bg-blue text-blue-600 hover:underline mb-4"
+      >
+        ← Quay lại
+      </button>
+
+      <h1 className="text-2xl font-semibold mb-6">
+        {!id ? "Thêm sản phẩm mới" : "Cập nhật sản phẩm"}
+      </h1>
+
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+        {/* Tên sản phẩm */}
         <div>
-          <label htmlFor="">Tên sản phẩm </label>
-          <input type="text" {...register("title", { required: true })} />
-          {errors.title && <span>{errors.title.message}</span>}
-        </div>
-        <div>
-          <label htmlFor="">Giá</label>
+          <label className="font-medium">Tên sản phẩm</label>
           <input
-            type="number"
-            {...register("price", { required: true, valueAsNumber: true })}
+            type="text"
+            {...register("title")}
+            className="border p-2 w-full rounded-lg mt-1"
           />
-          {errors.price && <span>{errors.price.message}</span>}
+          {errors.title && (
+            <p className="text-red-500 text-sm">{errors.title.message}</p>
+          )}
         </div>
 
+        {/* Giá */}
         <div>
+          <label className="font-medium">Giá</label>
+          <input
+            type="number"
+            {...register("price", { valueAsNumber: true })}
+            className="border p-2 w-full rounded-lg mt-1"
+          />
+          {errors.price && (
+            <p className="text-red-500 text-sm">{errors.price.message}</p>
+          )}
+        </div>
+
+        {/* Category */}
+        <div>
+          <label className="font-medium">Danh mục</label>
           <select
-            name=""
-            id=""
-            {...register("categoryId", { required: true, valueAsNumber: true })}
+            {...register("categoryId")}
+            className="border p-2 w-full rounded-lg mt-1"
           >
             <option value="">Chọn danh mục</option>
             {categoryName.map((cate) => (
@@ -91,34 +118,53 @@ const FormProduct = () => {
               </option>
             ))}
           </select>
-          {errors.categoryId && <span>{errors.categoryId.message}</span>}
+          {errors.categoryId && (
+            <p className="text-red-500 text-sm">{errors.categoryId.message}</p>
+          )}
         </div>
 
+        {/* Description */}
         <div>
-          <label htmlFor="">Mô tả sản phẩm</label>
+          <label className="font-medium">Mô tả sản phẩm</label>
           <textarea
-            name=""
-            id=""
-            {...register("description", { required: true })}
+            {...register("description")}
+            className="border p-2 w-full rounded-lg mt-1 h-28 resize-none"
           ></textarea>
-          {errors.description && <span>{errors.description.message}</span>}
+          {errors.description && (
+            <p className="text-red-500 text-sm">{errors.description.message}</p>
+          )}
         </div>
 
+        {/* Thumbnail */}
         <div>
-          <label htmlFor="">Thumbnail</label>
-          <input type="text" {...register("thumbnail", { required: true })} />
-          {errors.thumbnail && <span>{errors.thumbnail.message}</span>}
+          <label className="font-medium">Thumbnail</label>
+          <input
+            type="text"
+            {...register("thumbnail")}
+            className="border p-2 w-full rounded-lg mt-1"
+          />
+          {errors.thumbnail && (
+            <p className="text-red-500 text-sm">{errors.thumbnail.message}</p>
+          )}
         </div>
 
+        {/* Stock */}
         <div>
-          <label htmlFor="">Stock</label>
+          <label className="font-medium">Tồn kho</label>
           <input
             type="number"
-            {...register("stock", { required: true, valueAsNumber: true })}
+            {...register("stock", { valueAsNumber: true })}
+            className="border p-2 w-full rounded-lg mt-1"
           />
-          {errors.stock && <span>{errors.stock.message}</span>}
+          {errors.stock && (
+            <p className="text-red-500 text-sm">{errors.stock.message}</p>
+          )}
         </div>
-        <button>{!id ? "Thêm mới" : "Cập nhật"}</button>
+
+        {/* Submit */}
+        <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-all shadow">
+          {!id ? "Thêm mới" : "Cập nhật"}
+        </button>
       </form>
     </div>
   );
