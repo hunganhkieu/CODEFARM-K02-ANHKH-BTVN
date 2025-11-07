@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { createCourse, getCourseId, updateCourse } from "../../api/apiCourse";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -61,12 +61,12 @@ const FormCourse = () => {
             <h1 className="text-3xl font-bold text-gray-800">
               {!id ? "Thêm khóa học mới" : "Cập nhật khóa học"}
             </h1>
-            <button
-              onClick={() => nav(-1)}
-              className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition duration-200 font-medium"
-            >
-              ← Quay lại
-            </button>
+            <Link to={"/admin/courses"}>
+              {" "}
+              <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition duration-200 font-medium">
+                ← Quay lại
+              </button>
+            </Link>
           </div>
         </div>
       </div>
