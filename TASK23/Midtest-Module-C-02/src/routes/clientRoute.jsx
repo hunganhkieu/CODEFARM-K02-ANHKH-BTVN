@@ -5,7 +5,7 @@ import ForbiddenPage from "../pages/ForbiddenPage";
 const clientRoute = [
   {
     path: "/",
-    elelment: <ClientLayout />,
+    element: <ClientLayout />,
     children: [
       { index: true, element: <Navigate to={"/auth/login"} /> },
       { path: "403", Component: ForbiddenPage },
