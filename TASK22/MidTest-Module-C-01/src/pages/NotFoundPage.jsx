@@ -13,7 +13,7 @@ const NotFoundPage = () => {
         onClick={() => nav(-1)}
         className="px-6 py-3 bg-blue-600 text-white rounded-xl text-lg font-semibold hover:bg-blue-700 transition-all duration-200"
       >
-        Quay về trang chủ
+        Quay lại
       </button>
     </div>
   );
