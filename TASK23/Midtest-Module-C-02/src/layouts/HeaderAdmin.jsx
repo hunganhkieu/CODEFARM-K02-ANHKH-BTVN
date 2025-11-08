@@ -4,6 +4,7 @@ const HeaderAdmin = () => {
   const nav = useNavigate();
 
   const handleLogout = () => {
+    if (!confirm("Bạn có muốn xóa không?")) return;
     localStorage.removeItem("accessToken");
     localStorage.removeItem("user");
     nav("/auth/login");
