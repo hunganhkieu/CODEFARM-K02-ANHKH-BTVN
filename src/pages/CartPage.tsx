@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 const CartPage = () => {
-  const { carts, removeItemCart, removeAllCart, total } =
+  const { carts, removeItemCart, removeAllCart, increase, decrease, totals } =
     useContext(CartContext);
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4 sm:px-6 lg:px-8">
@@ -29,9 +29,9 @@ const CartPage = () => {
           <div className="grid lg:grid-cols-3 gap-6">
             {/* Cart Items */}
             <div className="lg:col-span-2 space-y-4">
-              {carts.map((item, index) => (
+              {carts.map((item) => (
                 <div
-                  key={index}
+                  key={item.productId}
                   className="bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition-shadow duration-200"
                 >
                   <div className="flex items-center space-x-4">
@@ -50,15 +50,40 @@ const CartPage = () => {
                       <p className="text-xl font-bold text-blue-600">
                         ${item.price}
                       </p>
-                      {item.quantity && (
+                      <>
+                        <div className="flex items-center space-x-3 mt-2">
+                          <button
+                            onClick={() => decrease(item.productId)}
+                            disabled={item.quantity <= 1}
+                            className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 disabled:bg-gray-100 disabled:text-gray-400 flex items-center justify-center transition-colors"
+                            aria-label="Giảm số lượng"
+                          >
+                            <span className="text-lg">−</span>
+                          </button>
+
+                          <span className="w-12 text-center font-medium text-gray-700">
+                            {item.quantity}
+                          </span>
+                          <button
+                            onClick={() => increase(item.productId)}
+                            className="w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center transition-colors "
+                            aria-label="Tăng số lượng"
+                            disabled={item.quantity >= 99}
+                          >
+                            <span className="text-lg">+</span>
+                          </button>
+                        </div>
                         <p className="text-sm text-gray-500 mt-1">
-                          Số lượng: {item.quantity}
+                          Thành tiền:{" "}
+                          <span className="font-medium text-gray-700">
+                            ${(item.price * item.quantity).toFixed(2)}
+                          </span>
                         </p>
-                      )}
+                      </>
                     </div>
 
                     <button
-                      onClick={() => removeItemCart(index)}
+                      onClick={() => removeItemCart(item.productId)}
                       className="flex-shrink-0 p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-200 group"
                       title="Xóa sản phẩm"
                     >
@@ -91,7 +116,7 @@ const CartPage = () => {
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between text-gray-600">
                     <span>Tạm tính:</span>
-                    <span>${total.toFixed(2)}</span>
+                    <span>${totals.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-gray-600">
                     <span>Phí vận chuyển:</span>
@@ -103,7 +128,7 @@ const CartPage = () => {
                         Tổng cộng:
                       </span>
                       <span className="text-2xl font-bold text-blue-600">
-                        ${total.toFixed(2)}
+                        ${totals.toFixed(2)}
                       </span>
                     </div>
                   </div>

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import type { ProductCart, Products } from "../types/Product";
+import type { Products } from "../types/Product";
 import { CartContext } from "../context/CartContext";
+import type { ProductCart } from "../types/Cart";
 
 const ShopPage = () => {
   const [products, setProducts] = useState<Products[]>([]);
