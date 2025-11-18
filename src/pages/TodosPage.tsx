@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTodoAPI, getTodosAPI } from "../api/apiTodo";
-import { getTodos, removeTodo } from "../features/todoSlice";
+import { Link } from "react-router-dom";
+import { deleteTodoAPI, getTodosAPI, updateTodoAPI } from "../api/apiTodo";
+import { getTodos, removeTodo, toggleCompleted } from "../features/todoSlice";
 import type { AppDispath, RootState } from "../store";
 import type { Todo } from "../types/todo";
-import { Link } from "react-router-dom";
 
 const TodosPage = () => {
   const { todos } = useSelector((state: RootState) => state.todo);
@@ -27,6 +27,18 @@ const TodosPage = () => {
       console.log(error);
     }
   };
+
+  const handleToggle = async (todo: Todo) => {
+    try {
+      const res = await updateTodoAPI(todo._id, {
+        isCompleted: !todo.isCompleted,
+      });
+
+      dispatch(toggleCompleted(todo._id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       <Link to={"/add"}>
@@ -45,9 +57,22 @@ const TodosPage = () => {
           {todos.length > 0 ? (
             todos.map((item: Todo) => (
               <tr key={item._id}>
-                <td>{item.name}</td>
+                <td
+                  style={{
+                    cursor: "pointer",
+                    textDecoration: item.isCompleted ? "line-through" : "none",
+                    opacity: item.isCompleted ? 0.5 : 1,
+                  }}
+                >
+                  {item.name}
+                </td>
                 <td>{item.isCompleted ? "Hoàn thành" : "Chưa hoàn thành"}</td>
                 <td>
+                  <button onClick={() => handleToggle(item)}>
+                    {item.isCompleted
+                      ? "Hủy hoàn thành"
+                      : "Hoàn thành công việc"}
+                  </button>
                   <button onClick={() => handleRemove(item._id)}>Xóa</button>
                 </td>
               </tr>
