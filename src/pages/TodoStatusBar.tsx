@@ -9,20 +9,31 @@ const TodoStatusBar = () => {
   const pending = totalTodo - completed;
 
   return (
-    <div
-      style={{
-        padding: "12px 16px",
-        backgroundColor: "#f0f0f0",
-        marginBottom: "16px",
-        borderRadius: "8px",
-        display: "flex",
-        gap: "24px",
-        fontWeight: 500,
-      }}
-    >
-      <span>Tổng công việc: {totalTodo}</span>
-      <span>Hoàn thành: {completed}</span>
-      <span>Chưa hoàn thành: {pending}</span>
+    <div className="bg-gradient-to-r from-purple-500 to-indigo-600 p-6 mb-8 rounded-2xl shadow-xl flex flex-wrap justify-center items-center gap-8 text-white">
+      <div className="flex flex-col items-center gap-2">
+        <span className="text-xs opacity-90 uppercase tracking-wide">
+          Tổng công việc
+        </span>
+        <span className="text-4xl font-bold">{totalTodo}</span>
+      </div>
+
+      <div className="w-0.5 h-12 bg-white bg-opacity-30" />
+
+      <div className="flex flex-col items-center gap-2">
+        <span className="text-xs opacity-90 uppercase tracking-wide">
+          Hoàn thành
+        </span>
+        <span className="text-4xl font-bold text-green-300">{completed}</span>
+      </div>
+
+      <div className="w-0.5 h-12 bg-white bg-opacity-30" />
+
+      <div className="flex flex-col items-center gap-2">
+        <span className="text-xs opacity-90 uppercase tracking-wide">
+          Chưa hoàn thành
+        </span>
+        <span className="text-4xl font-bold text-yellow-300">{pending}</span>
+      </div>
     </div>
   );
 };
