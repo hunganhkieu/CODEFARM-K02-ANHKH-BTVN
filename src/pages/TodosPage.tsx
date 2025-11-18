@@ -30,7 +30,7 @@ const TodosPage = () => {
 
   const handleToggle = async (todo: Todo) => {
     try {
-      const res = await updateTodoAPI(todo._id, {
+      await updateTodoAPI(todo._id, {
         isCompleted: !todo.isCompleted,
       });
 
