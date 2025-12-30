@@ -4,29 +4,65 @@ import createResponse from "../utils/createResponse.js";
 import handleAsync from "../utils/handleAsync.js";
 
 export const createCategory = handleAsync(async (req, res) => {
-  const caterogy = await Category.create(req.body);
-  createResponse(res, 201, "Thêm danh mục thành công", caterogy);
-});
-
-export const getCategories = handleAsync(async (req, res) => {
-  const data = await Category.find();
-  if (data.length === 0) {
-    createError(res, 404, "Not found", data);
-  }
-  createResponse(res, 200, "lấy danh sách thành công", data);
-});
-
-export const updateCategory = handleAsync(async (req, res) => {
-  const category = await Category.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
+  const cate = await Category.create({
+    ...req.body,
+    createdBy: req.user._id,
   });
-  createResponse(res, 200, "Cập nhật danh mục thành công", category);
+  createResponse(res, 201, "Create successfully", cate);
+});
+
+export const getCategorys = handleAsync(async (req, res) => {
+  const query = {
+    createdBy: req.user._id,
+  };
+
+  const data = await Category.find(query);
+  if (data.length === 0) {
+    return createError(res, 404, "Not found");
+  }
+
+  createResponse(res, 200, "Successfully", data);
+});
+
+export const getCateById = handleAsync(async (req, res) => {
+  const data = await Category.findOne({
+    _id: req.params.id,
+    createdBy: req.user._id,
+  });
+
+  if (!data) {
+    return createError(res, 404, "Not found or no permission");
+  }
+
+  return createResponse(res, 200, "Successfully", data);
+});
+export const updateCategory = handleAsync(async (req, res) => {
+  const data = await Category.findOneAndUpdate(
+    {
+      _id: req.params.id,
+      createdBy: req.user._id,
+    },
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+
+  if (!data) {
+    return createError(res, 404, "Not found or no permission");
+  }
+
+  return createResponse(res, 200, "Update successfully", data);
 });
 
 export const removeCategory = handleAsync(async (req, res) => {
-  const category = await Category.findByIdAndDelete(req.params.id);
-  if (!category) {
-    createError(res, 404, "Not found");
+  const data = await Category.findOneAndDelete({
+    _id: req.params.id,
+    createdBy: req.user._id,
+  });
+  if (!data) {
+    return createError(res, 400, "Not found or no permission");
   }
-  createResponse(res, 200, "Xóa danh mục thành công", category);
+  return createResponse(res, 200, "Remove successfully!", data);
 });

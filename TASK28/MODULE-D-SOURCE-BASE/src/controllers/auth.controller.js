@@ -6,31 +6,31 @@ import handleAsync from "../utils/handleAsync.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 export const signUp = handleAsync(async (req, res) => {
-  const { email, password, fullName } = req.body;
-  const userExits = await User.findOne({ email });
-  if (userExits) return createError(res, 400, "Email đã tồn tại");
+  const { userName, email, password } = req.body;
+  const userExit = await User.findOne({ email });
+  if (userExit) return createError(res, 400, "Email đã tồn tại", userExit);
 
   const salt = bcrypt.genSaltSync(10);
   const hash = bcrypt.hashSync(password, salt);
 
-  const user = await User.create({ email, password: hash, fullName });
+  const user = await User.create({ userName, email, password: hash });
   user.password = undefined;
-
   createResponse(res, 201, "Đăng ký thành công", user);
 });
 
 export const signIn = handleAsync(async (req, res) => {
   const { email, password } = req.body;
-  const userExits = await User.findOne({ email });
-  if (!userExits)
-    return createError(res, 400, "Email hoặc mật khẩu không đúng");
-  const isMatch = bcrypt.compareSync(password, userExits.password);
-  if (!isMatch) return createError(res, 400, "Email hoặc mật khẩu không đúng");
+  const userExit = await User.findOne({ email });
+  if (!userExit)
+    return createError(res, 400, "Email hoặc mật khẩu sai", userExit);
 
-  const accessToken = jwt.sign({ _id: userExits._id }, JWT_SECRET);
+  const accessPassword = bcrypt.compareSync(password, userExit.password);
+  if (!accessPassword) return createError(res, 400, "Emai hoặc mật khẩu sai");
+
+  const token = jwt.sign({ _id: userExit._id }, JWT_SECRET);
 
   createResponse(res, 200, "Đăng nhập thành công", {
-    user: userExits,
-    accessToken,
+    user: userExit,
+    token,
   });
 });
